@@ -10,18 +10,17 @@
 // You only need to complete this method.
 
 function insert(head, data) {
-    if (head === null) {
-        var node = new Node(data);
-        head = node;
-        return head;
+    if (head == null) {
+        head = new Node();
+        head.data = data;
     }
     else {
-        cursor = head;
-        while (cursor.next) {
-            cursor = cursor.next;
+        current = head;
+        while (current.next) {
+            current = current.next;
         }
-        cursor.next = new Node(data);
-        console.log(cursor);
-        return cursor;
+        var node = new Node(data);
+        current.next = node;
     }
+    return head;
 }
