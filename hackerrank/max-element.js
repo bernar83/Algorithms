@@ -1,23 +1,21 @@
-function processData(input) {
-    var inputArr = input.split("\n");
-    var stack = [];
-    
-    for (let i = 0; i < inputArr.length; i++) {
-        arrElement = inputArr[i];
-        if (arrElement.search(/\s/) > -1) {
-            var query1 = arrElement.split(" ");
-            stack.push(query1[1]);
-        }
-        else {
-            if (arrElement > 3) {
-                continue;
-            }
-            else if (arrElement == 2) {
-                stack.pop();
-            }
-            else {
-                console.log(stack[stack.length - 1]);
+function processData(input) {   
+    if (input.search(/\s/) > -1) {
+        var query1 = input.split(" ");
+        stack.push(query1[1]);
+    }
+    else if (input > 3) {
+        stack.push(input);
+    }
+    else if (input == 2) {
+        stack.pop();
+    }
+    else {
+        var max = 0;
+        for (let i = 0; i < stack.length; i++) {
+            if (stack[i] > max) {
+                max = stack[i];
             }
         }
+        console.log(max);
     }
 } 
