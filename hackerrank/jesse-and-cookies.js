@@ -4,8 +4,15 @@ function processData(input) {
     
     var lines = input.split('\n');
     var firstLine = lines[0].split(' ');
-    var secondLine = lines[1].split(' ');
+    var cookies = lines[1].split(' ');
+    var sweetness = firstLine[1];
+    
+    mix(cookies);
 } 
+
+function mix(cookies) {
+    
+}
 
 process.stdin.resume();
 process.stdin.setEncoding("ascii");
