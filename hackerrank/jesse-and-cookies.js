@@ -2,7 +2,9 @@ function processData(input) {
     // Natural -> Natural
     // produce the number of operations it takes to get all cookies to be >= to K
     
-    console.log(0);
+    var lines = input.split('\n');
+    var firstLine = lines[0].split(' ');
+    var secondLine = lines[1].split(' ');
 } 
 
 process.stdin.resume();
