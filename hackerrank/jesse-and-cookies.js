@@ -4,15 +4,27 @@ function processData(input) {
     
     var lines = input.split('\n');
     var firstLine = lines[0].split(' ');
-    var cookies = lines[1].split(' ').map(Number);
+    var cookies = lines[1].split(' ').map(Number).sort((a, b) => a - b);
     var sweetness = firstLine[1];
     var operations = 0;
     
-    mix(cookies, sweetness, operations);
+    operations = mix(cookies, sweetness, operations);
+    
+    console.log(operations);
 } 
 
 function mix(cookies, sweetness, operations) {
-    if ()
+    // Natural Natural Natural -> Integer
+    var reducer = (acc, curr) => acc + curr;
+    if (cookies.reduce(reducer) >= sweetness) {
+        return operations;
+    }
+    else if (cookies.reduce(reducer) < sweetness && cookies.length === 1) {
+        return -1;
+    }
+    else {
+        
+    }
 }
 
 process.stdin.resume();
