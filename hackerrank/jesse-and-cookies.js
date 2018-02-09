@@ -15,8 +15,15 @@ function processData(input) {
 
 function mix(cookies, sweetness, operations) {
     // Natural Natural Natural -> Integer
-    var reducer = (acc, curr) => acc + curr;
-    if (cookies.reduce(reducer) >= sweetness) {
+    // produce the number of operations it takes to get all cookies to be at a certain sweetness
+
+    var allSweet = true;
+    cookies.forEach(function(x) {
+        if (x < sweetness) {
+            allSweet = false;
+        }
+    });
+    if (allSweet) {
         return operations;
     }
     else if (cookies.reduce(reducer) < sweetness && cookies.length === 1) {
@@ -24,6 +31,7 @@ function mix(cookies, sweetness, operations) {
     }
     else {
         
+        operations++
     }
 }
 
