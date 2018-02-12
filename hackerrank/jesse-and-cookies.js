@@ -26,15 +26,14 @@ function mix(cookies, sweetness, operations) {
     if (allSweet) {
         return operations;
     }
-    else if (cookies.reduce(reducer) < sweetness && cookies.length === 1) {
+    else if (cookies.length === 1 && cookies[0] < sweetness) {
         return -1; 
     }
     else {
         var newCookie = 1 * cookies[0] + 2 * cookies[1];
         cookies.splice(0, 2);
         cookies.push(newCookie);
-        operations++
-        return mix(cookies, sweetness, operations);
+        return mix(cookies, sweetness, operations++);
     }
 }
 
