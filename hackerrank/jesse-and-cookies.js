@@ -31,9 +31,8 @@ function mix(cookies, sweetness, operations) {
     }
     else {
         var newCookie = 1 * cookies[0] + 2 * cookies[1];
-        cookies.splice(0, 2);
-        cookies.push(newCookie);
-        return mix(cookies, sweetness, operations++);
+        cookies.splice(0, 2, newCookie);
+        return mix(cookies, sweetness, operations + 1);
     }
 }
 
