@@ -23,6 +23,22 @@ function readLine() {
 function countApplesAndOranges(s, t, a, b, apples, oranges) {
     var applesDistance = apples.map(x => a + x);
     var orangeDistance = oranges.map(y => b + y);
+    
+    var applesPoints = 0;
+    var orangesPoints = 0;
+    
+    applesDistance.forEach(function(x) {
+        if (x >= s && x <= t) {
+            applesPoints += 1;
+        }
+    });
+    orangeDistance.forEach(function(x) {
+        if (x >= s && x <= t) {
+            orangesPoints += 1;
+        }
+    });
+    
+    console.log(applesPoints + '\n' + orangesPoints);
 }
 
 function main() {
