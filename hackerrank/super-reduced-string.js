@@ -1,19 +1,16 @@
 function super_reduced_string(s) {
-    const result = s.split("").sort().reduce((accumulator, current) => {
-        const leng = accumulator.length;
-        var regex = new RegExp(current, 'g');
-        var foundArr = s.match(regex);
-
-        if (foundArr !== null && foundArr.length % 2 === 1 && accumulator.indexOf(current) === -1) {
-            accumulator = accumulator.toString().concat(current);
+    
+    var sortedArr = s.split('').sort();
+    
+    const reducedStr = sortedArr.reduce((acc, curr, indx) => {
+        var regex = new RegExp(curr, 'g');
+        var foundArrForCurr = s.match(regex);
+        var foundArrForAcc = acc.match(regex)
+        if (foundArrForCurr.length % 2 === 1 && foundArrForAcc.length === 0) {
+            acc = acc.concat(curr);
         }
-
-        return accumulator;
-    }, []);
+        return acc;
+    }, '');
     
-    if (result === "") {
-        result = "Empty String";
-    }
-    
-    return result;
+    console.log(reducedStr === "" ? "Empty String" : reducedStr); 
 }
