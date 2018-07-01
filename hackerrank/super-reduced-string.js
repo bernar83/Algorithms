@@ -1,16 +1,24 @@
 function super_reduced_string(s) {
+    var foundLetters = [];
     
-    var sortedArr = s.split('').sort();
+    for (let i = 0; i < s.length; i++) {
+        var currentLetter = s[i];
+        var lettersMatched = s.match(new RegExp(currentLetter, 'g'));
+        if (foundLetters.length % 2 === 1) {
+            if (foundLetters.indexOf(currentLetter) === -1) {
+                foundLetters.push(currentLetter);
+            }
+        }    
+    }
+
+    var result;
     
-    const reducedStr = sortedArr.reduce((acc, curr, indx) => {
-        var regex = new RegExp(curr, 'g');
-        var foundArrForCurr = s.match(regex);
-        var foundArrForAcc = acc.match(regex)
-        if (foundArrForCurr.length % 2 === 1 && foundArrForAcc.length === 0) {
-            acc = acc.concat(curr);
-        }
-        return acc;
-    }, '');
+    if (foundLetters.length === 0) {
+        result = 'Empty String';
+    }    
+    else {
+        result = foundLetters.toString();
+    }
     
-    console.log(reducedStr === "" ? "Empty String" : reducedStr); 
+    return result;
 }
